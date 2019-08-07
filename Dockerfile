@@ -23,11 +23,11 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
 ADD Pipfile Pipfile.lock ./
 RUN pipenv install --system --deploy
 
-ADD . .
-
 CMD while ! nc -z postgres 5432; do sleep 1; done \
  && ./manage.py migrate \
  && ./manage.py collectstatic --no-input \
  && gunicorn \
     --bind 0.0.0.0 \
     testproject.wsgi
+
+ADD . .

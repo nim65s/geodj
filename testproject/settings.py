@@ -19,8 +19,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'ndh',
+    'bootstrap4',
     'world',
     'geonealog',
+    'testproject',
 ]
 
 MIDDLEWARE = [

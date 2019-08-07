@@ -1,0 +1,16 @@
+{% extends 'ndh.html' %}
+{% load ndh %}
+
+{% block pagetitle %}GeoDJ{% endblock %}
+{% block sitetitle %}GeoDJ{% endblock %}
+
+{% block navbarleft %}
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" id="djenealogDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+    Geonealog
+  </a>
+  <div class="dropdown-menu" aria-labelledby="djenealogDropdown">
+      <a class="dropdown-item" href="{% url 'geonealog:wdplaces' %}">WikiData Places</a>
+  </div>
+</li>
+{% endblock %}

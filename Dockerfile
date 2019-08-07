@@ -1,20 +1,23 @@
-FROM python:3.7-alpine
+FROM alpine:edge
 
 EXPOSE 8000
 
 RUN mkdir /app
 WORKDIR /app
 
-RUN apk update -q \
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
+ && apk update -q \
  && apk add --no-cache \
+    gdal \
+    geos \
+    postgis \
+    proj \
     py3-gunicorn \
     py3-psycopg2 \
     py3-raven \
  && pip3 install --no-cache-dir \
     pipenv \
     python-memcached
-
-ENV PYTHONPATH=/usr/lib/python3.7/site-packages:/usr/local/lib/python3.7/site-packages
 
 ADD Pipfile Pipfile.lock ./
 RUN pipenv install --system --deploy

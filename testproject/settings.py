@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'world',
     'geonealog',
     'testproject',
+    'leaflet',
 ]
 
 MIDDLEWARE = [
@@ -108,3 +109,9 @@ if os.environ.get('MEMCACHED', 'False').lower() == 'true':
             'LOCATION': 'memcached:11211',
         }
     }
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (43.5, 1.5),
+    'DEFAULT_ZOOM': 6,
+    'TILES': 'http://a.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
+}

@@ -17,7 +17,8 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
     py3-raven \
  && pip3 install --no-cache-dir \
     pipenv \
-    python-memcached
+    python-memcached \
+ && ln -s /usr/lib/libproj.so.15 /usr/lib/libproj.so
 
 ADD Pipfile Pipfile.lock ./
 RUN pipenv install --system --deploy
